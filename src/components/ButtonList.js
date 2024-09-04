@@ -1,10 +1,9 @@
 import React from "react";
-import VideoContainer from "./VideoContainer";
 
 const ButtonList = () => {
   return (
-    <div>
-      <VideoContainer />
+    <div className="w-full px-2 mx-2">
+      <button className="p-2 bg-gray-400 rounded">ALL</button>
     </div>
   );
 };

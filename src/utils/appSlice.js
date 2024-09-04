@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  isMenuOpen: false,
+  isMenuOpen: true,
 };
 const appSlice = createSlice({
   name: "app",
