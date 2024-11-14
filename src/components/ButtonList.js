@@ -1,9 +1,9 @@
 import React from "react";
 
-const ButtonList = () => {
+const ButtonList = ({ id }) => {
   return (
-    <div className="w-full px-2 mx-2">
-      <button className="p-2 bg-gray-400 rounded">ALL</button>
+    <div>
+      <button className="px-5 py-2 bg-gray-200 rounded-lg text-nowrap">{id}</button>
     </div>
   );
 };

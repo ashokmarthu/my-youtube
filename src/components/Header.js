@@ -1,6 +1,7 @@
 import React from "react";
 import HamburgerIcon from "../svg/HamburgerIcon.svg";
 import YouTubeIcon from "../svg/YouTubeIcon.svg";
+import SearchIcon from "../svg/SearchIcon.svg";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 
@@ -11,8 +12,8 @@ const Header = () => {
   };
 
   return (
-    <div className="grid grid-flow-col p-5 m-2 shadow-lg">
-      <div className="flex col-span-1 gap-2">
+    <div className="grid grid-flow-col p-5 fixed bg-white w-full h-20">
+      <div className="flex col-span-1 justify-between">
         <img
           className="h-8 cursor-pointer"
           alt="hamburger"
@@ -23,11 +24,12 @@ const Header = () => {
       </div>
       <div className="col-span-10 flex justify-center">
         <input
-          className="rounded-lg w-2/4 border border-gray-400 rounded-l-full focus:outline-none pl-4"
+          className="rounded-lg w-2/4 text-lg border border-gray-400 rounded-l-full focus:outline-none pl-4"
+          placeholder="Search"
           type="text"
         />
-        <button className="bg-gray-400 rounded-r-full p-1.5 text-center">
-          search
+        <button className="border border-gray-600 rounded-r-lg p-1.5 text-center bg-gray-100">
+          <img alt="y-icon" src={SearchIcon} />
         </button>
       </div>
       <div className="col-span-1">
