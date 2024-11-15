@@ -10,7 +10,6 @@ const MainContainer = () => {
           <ButtonList id={id} />
         ))}
       </div>
-
       <VideoContainer />
     </div>
   );

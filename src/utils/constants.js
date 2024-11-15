@@ -16,5 +16,85 @@ const BUTTONS_LIST = [
 ];
 const YOUTUBE_SEARCH_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+const LIVE_CHAT_COUNT = 25;
+const COMMENTS_JSON = [
+  {
+    name: "Ashok Marthu",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+  {
+    name: "Ashok Marthu",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [
+      {
+        name: "Ashok Marthu",
+        text: "Lorem ipsum dolor sit amet, consectetur adip",
+        replies: [],
+      },
+      {
+        name: "Ashok Marthu",
+        text: "Lorem ipsum dolor sit amet, consectetur adip",
+        replies: [
+          {
+            name: "Ashok Marthu",
+            text: "Lorem ipsum dolor sit amet, consectetur adip",
+            replies: [
+              {
+                name: "Ashok Marthu",
+                text: "Lorem ipsum dolor sit amet, consectetur adip",
+                replies: [
+                  {
+                    name: "Ashok Marthu",
+                    text: "Lorem ipsum dolor sit amet, consectetur adip",
+                    replies: [
+                      {
+                        name: "Ashok Marthu",
+                        text: "Lorem ipsum dolor sit amet, consectetur adip",
+                        replies: [],
+                      },
+                    ],
+                  },
+                  {
+                    name: "Ashok Marthu",
+                    text: "Lorem ipsum dolor sit amet, consectetur adip",
+                    replies: [],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Ashok Marthu",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+  {
+    name: "Ashok Marthu",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+  {
+    name: "Ashok Marthu",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+  {
+    name: "Ashok Marthu",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+];
 
-export { VIDEOS_API, BUTTONS_LIST, API_KEY ,YOUTUBE_SEARCH_API};
+export {
+  VIDEOS_API,
+  BUTTONS_LIST,
+  API_KEY,
+  YOUTUBE_SEARCH_API,
+  LIVE_CHAT_COUNT,
+  COMMENTS_JSON
+};
