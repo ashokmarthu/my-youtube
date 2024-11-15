@@ -8,7 +8,7 @@ import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
-  const searchResults = useSelector((state) => state.search.searchResults);
+  const searchCache = useSelector((state) => state.search.searchResults);
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    if (searchResults[searchQuery]) setSuggestions(searchResults[searchQuery]);
+    if (searchCache[searchQuery]) setSuggestions(searchCache[searchQuery]);
     else {
       const timer = setTimeout(() => {
         clearTimeout(timer);
