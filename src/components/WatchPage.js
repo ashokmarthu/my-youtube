@@ -12,8 +12,9 @@ const WatchPage = () => {
   return (
     <div>
       <iframe
-        width="1200"
-        height="600"
+       className="!rounded-lg"
+        width="800"
+        height="500"
         src={"https://www.youtube.com/embed/" + searchParams.get("v")}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

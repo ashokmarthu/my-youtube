@@ -1,36 +1,84 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HamburgerIcon from "../svg/HamburgerIcon.svg";
 import YouTubeIcon from "../svg/YouTubeIcon.svg";
 import SearchIcon from "../svg/SearchIcon.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
+  const searchResults = useSelector((state) => state.search.searchResults);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
   const dispatch = useDispatch();
   const handleToggleMenu = () => {
     dispatch(toggleMenu());
   };
 
+  const getSearchResults = async () => {
+    try {
+      const res = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      const json = await res.json();
+      setSuggestions(json[1]);
+      dispatch(cacheResults({ [searchQuery]: json[1] }));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  useEffect(() => {
+    if (searchResults[searchQuery]) setSuggestions(searchResults[searchQuery]);
+    else {
+      const timer = setTimeout(() => {
+        clearTimeout(timer);
+        getSearchResults();
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [searchQuery]);
+
   return (
     <div className="grid grid-flow-col p-5 fixed bg-white w-full h-20">
       <div className="flex col-span-1 justify-between">
-        <img
-          className="h-8 cursor-pointer"
-          alt="hamburger"
-          src={HamburgerIcon}
-          onClick={handleToggleMenu}
-        />
-        <img className="h-8" alt="y-icon" src={YouTubeIcon} />
+        <div className="hover:bg-gray-300 hover:rounded-full p-1">
+          <img
+            className="h-8 cursor-pointer"
+            alt="hamburger"
+            src={HamburgerIcon}
+            onClick={handleToggleMenu}
+          />
+        </div>
+        <div>
+          <img className="h-8" alt="y-icon" src={YouTubeIcon} />
+        </div>
       </div>
-      <div className="col-span-10 flex justify-center">
-        <input
-          className="rounded-lg w-2/4 text-lg border border-gray-400 rounded-l-full focus:outline-none pl-4"
-          placeholder="Search"
-          type="text"
-        />
-        <button className="border border-gray-600 rounded-r-lg p-1.5 text-center bg-gray-100">
-          <img alt="y-icon" src={SearchIcon} />
-        </button>
+      <div className="col-span-10 px-40">
+        <div className="flex w-full">
+          <input
+            className="rounded-lg border border-gray-400 rounded-l-full focus:outline-none py-2 pr-2 pl-4 w-full"
+            placeholder="Search"
+            value={searchQuery}
+            type="text"
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button className="border border-gray-600 rounded-r-full p-1.5 text-center bg-gray-100">
+            <img alt="y-icon" src={SearchIcon} />
+          </button>
+        </div>
+        {suggestions.length > 0 && (
+          <div className="flex shadow-2xl bg-white rounded-md mt-2 cursor-pointer">
+            <ul className="py-2 w-full">
+              {suggestions.map((i, index) => (
+                <div className="flex justify-start items-center px-3 py-1 hover:bg-gray-200">
+                  <img alt="y-icon" src={SearchIcon} className="w-4 h-4" />
+                  <li key={index + Math.random()} className="pl-1">
+                    {i}
+                  </li>
+                </div>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <div className="col-span-1">
         <img

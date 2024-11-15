@@ -14,5 +14,7 @@ const BUTTONS_LIST = [
   "Podcasts",
   "Elon Musk",
 ];
+const YOUTUBE_SEARCH_API =
+  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
-export { VIDEOS_API, BUTTONS_LIST, API_KEY };
+export { VIDEOS_API, BUTTONS_LIST, API_KEY ,YOUTUBE_SEARCH_API};
