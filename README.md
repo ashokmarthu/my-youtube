@@ -32,6 +32,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### Live URL
 
 https://my-youtube-self.netlify.app
+
 used netlify to host the application. you can see the live changes on above URL
 
 if you find any bugs. Please create a issue 
