@@ -37,5 +37,5 @@ used netlify to host the application. you can see the live changes on above URL
 
 if you find any bugs. Please create a issue 
 
-Cheers!
+Cheers!\
 Ashok Babu Marthu
