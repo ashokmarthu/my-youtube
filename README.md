@@ -29,6 +29,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Note 
+I have Just Started Building the app. will add more features soon. Thanks!
+
 ### Live URL
 
 https://my-youtube-self.netlify.app
